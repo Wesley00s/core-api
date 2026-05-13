@@ -37,7 +37,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/core-api:latest
-
-      - name: Trigger Render Deployment
-        run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/core-api:latest
+            ${{ secrets.DOCKER_USERNAME }}/core-api:${{ github.sha }}
