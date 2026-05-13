@@ -1,0 +1,15 @@
+services:
+  backend:
+    build:
+      context: .
+    container_name: core_api_service
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=production
+    networks:
+      - core_network
+
+networks:
+  core_network:
+    driver: bridge
